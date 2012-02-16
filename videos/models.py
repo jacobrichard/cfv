@@ -11,7 +11,7 @@ class Video(models.Model):
 	    return self.title
 	
 class Incident(models.Model):
-	video = models.ManyToMany(Video)
+	video = models.ManyToManyField(Video)
 	date = models.DateField()
 	address = models.CharField(max_length=200)
 	alarm_level = models.CharField(max_length=2)
