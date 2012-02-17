@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title%}{{ video.title }}{% endblock %}
+
+{% block content %}
+Address: {{ incident.address }}
+<br>
+Alarm Level: {{ incident.alarm_level }}
+<br>
+Department: {{ incident.department }}
+<br>
+Date: {{ incident.date }}
+<br>
+Keywords: {{ incident.keywords }}
+<br>
+<br>
+Appears On:
+{% for video in videos %}
+<li>{{ video }}</li>
+{% endfor %}
+<br>
+{% endblock %}
