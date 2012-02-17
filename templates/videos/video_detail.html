@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title%}{{ video.title }}{% endblock %}
+
+{% block content %}
+{{ video.title }}
+<br>
+{{ video.length }}
+<br>
+{{ video.price }}
+<br>
+<table>
+<tr><td>Video</td></tr>
+{% for incident in incidents %}
+    <tr><td>{{ incident.address }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
