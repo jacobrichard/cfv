@@ -26,7 +26,7 @@ class Incident(models.Model):
 	address = models.CharField(max_length=200)
 	city = models.CharField(max_length=200)
 	state = models.CharField(max_length=2,choices=STATE_CHOICES)
-	alarm_level = models.CharField(max_length=2)
+	alarm_level = models.ManyToManyField(AlarmLevel,related_name='alarm_levels')
 	department = models.CharField(max_length=200)
 	description = models.TextField()
 	keywords = models.CharField(max_length=200)
@@ -41,3 +41,10 @@ class Photo(models.Model):
 	
 	def __unicode__(self):
 		return ' - '.join([str(self.id),unicode(self.incident)])
+		
+class AlarmLevel(models.Model):
+	level_description = models.charField(max_length=50)
+	response_detail = models.TextField(blank=True)
+   
+    def __unicode__(self):
+	    return self.level_description
