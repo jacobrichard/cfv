@@ -1,6 +1,4 @@
-from videos.models import Video
-from videos.models import Incident
-from videos.models import Photo
+from videos.models import Video, Incident, Photo, AlarmLevel
 from django.contrib import admin
 
 class AppearanceInline(admin.TabularInline):
