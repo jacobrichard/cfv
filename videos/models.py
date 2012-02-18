@@ -11,7 +11,7 @@ class Video(models.Model):
     length = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6,decimal_places=2)
     release_date = models.DateField()
-    item_number = models.CharField(max_length=10)
+    item_number = models.CharField(max_length=10,unique=True)
     narrative = models.TextField()
     product_photo = StdImageField(upload_to='product_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
     detail_photo_1 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
