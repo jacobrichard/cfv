@@ -25,7 +25,7 @@ Stills<br>
 <table>
 <tr><td>Incidents</td></tr>
 {% for incident in incidents %}
-    <tr><td><li>{{ incident.address }}</li></td></tr>
+    <tr><td><li><a href='/incident/{{ incident.id }}'>{{ incident.address }}</a></li></td></tr>
 {% endfor %}
 </table>
 {% endblock %}
