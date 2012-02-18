@@ -27,7 +27,7 @@ class Incident(models.Model):
 	state = models.CharField(max_length=2,choices=STATE_CHOICES)
 	alarm_level = models.CharField(max_length=2)
 	department = models.CharField(max_length=200)
-	description = models.TextField()S
+	description = models.TextField()
 	keywords = models.CharField(max_length=200)
 	
 	
