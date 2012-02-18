@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib import admin
+from stdimage import StdImageField
 from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
 # Create your models here.
