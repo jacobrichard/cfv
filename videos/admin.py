@@ -19,7 +19,9 @@ class IncidentAdmin(admin.ModelAdmin):
     inlines = [
         PhotoInline,
 	]
-    filter_horizontal = ( Incident.alarm_level )
+    filter_horizontal = [
+        'video','alarm_level' 
+    ]
 	
 admin.site.register(Video,VideoAdmin)
 admin.site.register(Incident,IncidentAdmin)
