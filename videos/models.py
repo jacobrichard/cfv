@@ -8,6 +8,7 @@ class Video(models.Model):
     price = models.DecimalField(max_digits=6,decimal_places=2)
     release_date = models.DateField()
     item_number = models.CharField(max_length=10)
+    narrative = models.TextField()
     product_photo = models.ImageField(upload_to='product_photos')
     detail_photo_1 = models.ImageField(upload_to='detail_photos')
     detail_photo_2 = models.ImageField(upload_to='detail_photos')
@@ -21,6 +22,7 @@ class Incident(models.Model):
 	address = models.CharField(max_length=200)
 	alarm_level = models.CharField(max_length=2)
 	department = models.CharField(max_length=200)
+	description = models.TextField()
 	keywords = models.CharField(max_length=200)
 	
 	def __unicode__(self):
