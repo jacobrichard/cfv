@@ -5,6 +5,10 @@
 {% block content %}
 Address: {{ incident.address }}
 <br>
+City: {{ incident.city }}
+<br>
+State: {{ incident.state }}
+<br>
 Alarm Level: {{ incident.alarm_level }}
 <br>
 Department: {{ incident.department }}
@@ -19,4 +23,7 @@ Appears On:
 <li>{{ video }}</li>
 {% endfor %}
 <br>
+{% for photo in photos %}
+<img src='/media/{{ photo.photo }}'/>
+{% endfor %}
 {% endblock %}

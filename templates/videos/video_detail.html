@@ -5,14 +5,27 @@
 {% block content %}
 {{ video.title }}
 <br>
-{{ video.length }}
+Title: {{ video.length }}
 <br>
-{{ video.price }}
+Price: {{ video.price }}
 <br>
+Release Date: {{ video.release_date }}
+<br>
+Item Number: {{ video.item_number }}
+<br>
+Narrative: {{ video.narrative }}
+<br><br>
+Product Photo<br>
+<img src='/media/{{ video.product_photo }}'/>
+<br>
+Stills<br>
+<img src='/media/{{ video.detail_photo_1 }}'/>
+<img src='/media/{{ video.detail_photo_2 }}'/>
+<br><br>
 <table>
-<tr><td>Video</td></tr>
+<tr><td>Incidents</td></tr>
 {% for incident in incidents %}
-    <tr><td>{{ incident.address }}</td></tr>
+    <tr><td><li>{{ incident.address }}</li></td></tr>
 {% endfor %}
 </table>
 {% endblock %}
