@@ -25,4 +25,4 @@ class IncidentAdmin(admin.ModelAdmin):
 admin.site.register(Video,VideoAdmin)
 admin.site.register(Incident,IncidentAdmin)
 admin.site.register(Photo)
-
+admin.site.register(AlarmLevel)
