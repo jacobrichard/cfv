@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib import admin
+from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
 # Create your models here.
+
+
 class Video(models.Model):
     title = models.CharField(max_length=200)
     length = models.CharField(max_length=200)
@@ -12,6 +15,10 @@ class Video(models.Model):
     product_photo = models.ImageField(upload_to='product_photos')
     detail_photo_1 = models.ImageField(upload_to='detail_photos')
     detail_photo_2 = models.ImageField(upload_to='detail_photos')
+
+    ## Forign Key Model (Shaky in actual use case)
+#    detail_photo_1 = models.ForeignKey('Photo',related_name='video_detail_photo_1',blank=True,null=True)
+#    detail_photo_2 = models.ForeignKey('Photo',related_name='video_detail_photo_2',blank=True,null=True)
 	
     def __unicode__(self):
 	    return self.title
@@ -20,10 +27,13 @@ class Incident(models.Model):
 	video = models.ManyToManyField(Video,related_name='incidents')
 	date = models.DateField()
 	address = models.CharField(max_length=200)
+	city = models.CharField(max_length=200)
+	state = models.CharField(max_length=2,choices=STATE_CHOICES)
 	alarm_level = models.CharField(max_length=2)
 	department = models.CharField(max_length=200)
 	description = models.TextField()
 	keywords = models.CharField(max_length=200)
+	
 	
 	def __unicode__(self):
 		return ' - '.join([str(self.date),self.address])

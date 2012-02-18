@@ -15,6 +15,7 @@ def incident_detail(request, incident_id):
 	try:
 		i = Incident.objects.get(pk=incident_id)
 		v = i.video.all()
+		p = i.photo_set.all()
 	except Incident.DoesNotExist:
 		raise Http404
-	return render_to_response('videos/incident_detail.html',{'incident': i, 'videos': v})
+	return render_to_response('videos/incident_detail.html',{'incident': i, 'videos': v, 'photos': p})
