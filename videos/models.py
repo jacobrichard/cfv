@@ -7,7 +7,11 @@ class Video(models.Model):
     length = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6,decimal_places=2)
     release_date = models.DateField()
-
+    item_number = models.CharField(max_length=10)
+    product_photo = models.ImageField(upload_to='product_photos')
+    detail_photo_1 = models.ImageField(upload_to='detail_photos')
+    detail_photo_2 = models.ImageField(upload_to='detail_photos')
+	
     def __unicode__(self):
 	    return self.title
 	
