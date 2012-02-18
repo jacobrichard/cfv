@@ -16,9 +16,10 @@ def incident_detail(request, incident_id):
 		i = Incident.objects.get(pk=incident_id)
 		v = i.video.all()
 		p = i.photo_set.all()
+		a = i.alarm_level.all()
 	except Incident.DoesNotExist:
 		raise Http404
-	return render_to_response('videos/incident_detail.html',{'incident': i, 'videos': v, 'photos': p})
+	return render_to_response('videos/incident_detail.html',{'incident': i, 'videos': v, 'photos': p, 'alarm_levels': a})
 
 def detail_by_item_number(request, item_number):
     try:

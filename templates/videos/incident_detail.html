@@ -9,7 +9,10 @@ City: {{ incident.city }}
 <br>
 State: {{ incident.state }}
 <br>
-Alarm Level: {{ incident.alarm_level }}
+Alarm Level:
+{% for alarm_desc in alarm_levels.level_description %}
+{{ alarm_desc }}
+{% endfor %}
 <br>
 Department: {{ incident.department }}
 <br>
