@@ -13,9 +13,9 @@ class Video(models.Model):
     release_date = models.DateField()
     item_number = models.CharField(max_length=10)
     narrative = models.TextField()
-    product_photo = models.ImageField(upload_to='product_photos')
-    detail_photo_1 = models.ImageField(upload_to='detail_photos')
-    detail_photo_2 = models.ImageField(upload_to='detail_photos')
+    product_photo = StdImageField(upload_to='product_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
+    detail_photo_1 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
+    detail_photo_2 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
 	
     def __unicode__(self):
 	    return self.title
@@ -37,7 +37,7 @@ class Incident(models.Model):
 
 class Photo(models.Model):
 	incident = models.ForeignKey(Incident)
-	photo = models.ImageField(upload_to='incident_photos')
+	photo = StdImageField(upload_to='incident_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
 	
 	def __unicode__(self):
 		return ' - '.join([str(self.id),unicode(self.incident)])
