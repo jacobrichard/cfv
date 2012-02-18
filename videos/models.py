@@ -43,8 +43,8 @@ class Photo(models.Model):
 		return ' - '.join([str(self.id),unicode(self.incident)])
 		
 class AlarmLevel(models.Model):
-	level_description = models.charField(max_length=50)
+	level_description = models.CharField(max_length=50)
 	response_detail = models.TextField(blank=True)
    
-    def __unicode__(self):
-	    return self.level_description
+	def __unicode__(self):
+   		return self.level_description
