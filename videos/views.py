@@ -19,3 +19,11 @@ def incident_detail(request, incident_id):
 	except Incident.DoesNotExist:
 		raise Http404
 	return render_to_response('videos/incident_detail.html',{'incident': i, 'videos': v, 'photos': p})
+
+def detail_by_item_number(request, item_number):
+    try:
+        v = Video.objects.get(item_number=item_number)
+        i = Incident.objects.filter(video=v.id)
+    except Video.DoesNotExist:
+        raise Http404
+    return render_to_response('videos/video_detail.html', {'video': v, 'incidents': i})

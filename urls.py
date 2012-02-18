@@ -19,7 +19,7 @@ urlpatterns = patterns('',
      (r'^media/(?P<path>.*)$', 'django.views.static.serve',
 	        {'document_root': settings.MEDIA_ROOT}),
 	
-	 (r'^videos/(?P<video_id>\d+)/$', 'videos.views.video_detail'),
-	 (r'^incident/(?P<incident_id>\d+)/$', 'videos.views.incident_detail'),
-	
+     (r'^videos/(?P<video_id>\d+)/$', 'videos.views.video_detail'),
+     (r'^incident/(?P<incident_id>\d+)/$', 'videos.views.incident_detail'),
+     (r'^item/(?P<item_number>.+)/$', 'videos.views.detail_by_item_number'),
 )
