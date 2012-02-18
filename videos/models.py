@@ -26,7 +26,7 @@ class Incident(models.Model):
 	address = models.CharField(max_length=200)
 	city = models.CharField(max_length=200)
 	state = models.CharField(max_length=2,choices=STATE_CHOICES)
-	alarm_level = models.ManyToManyField(AlarmLevel,related_name='alarm_levels')
+	alarm_level = models.ManyToManyField('AlarmLevel',related_name='alarm_levels')
 	department = models.CharField(max_length=200)
 	description = models.TextField()
 	keywords = models.CharField(max_length=200)
