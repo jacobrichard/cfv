@@ -14,9 +14,9 @@ def video_detail(request, video_id):
 def incident_detail(request, incident_id):
     try:
         incident = Incident.objects.get(pk=incident_id)
-        videos = i.video.all()
-        photos = i.photo_set.all()
-        alarm_levels = i.alarm_level.all()
+        videos = incident.video.all()
+        photos = incident.photo_set.all()
+        alarm_levels = incident.alarm_level.all()
     except Incident.DoesNotExist:
         raise Http404
     return render_to_response('chicagofirevideo/incident_detail.html',{'incident': incident, 'videos': videos, 'photos': photos, 'alarm_levels': alarm_levels})
@@ -24,7 +24,7 @@ def incident_detail(request, incident_id):
 def detail_by_item_number(request, item_number):
     try:
         video = Video.objects.get(item_number=item_number)
-        incidents = Incident.objects.filter(video=v.id)
+        incidents = Incident.objects.filter(video=video.id)
     except Video.DoesNotExist:
         raise Http404
     return render_to_response('chicagofirevideo/video_detail.html', {'video': video, 'incidents': incidents})
