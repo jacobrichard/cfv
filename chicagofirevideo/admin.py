@@ -10,12 +10,12 @@ class IncidentInline(admin.TabularInline):
 
 class PhotoInline(admin.TabularInline):
     model = Photo	
-	
+
 class VideoAdmin(admin.ModelAdmin):
     inlines = [
         AppearanceInline
     ]
-	
+
 class IncidentAdmin(admin.ModelAdmin):
     inlines = [
         PhotoInline,
@@ -36,7 +36,7 @@ class MerchantInfoAdminForm(forms.ModelForm):
 class MerchantInfoAdmin(admin.ModelAdmin):
     form = MerchantInfoAdminForm
 
-	
+
 admin.site.register(Video,VideoAdmin)
 admin.site.register(Incident,IncidentAdmin)
 admin.site.register(Photo)

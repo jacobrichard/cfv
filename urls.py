@@ -17,8 +17,8 @@ urlpatterns = patterns('',
      (r'^admin/', include(admin.site.urls)),
 
      (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-	        {'document_root': settings.MEDIA_ROOT}),
-	
+        {'document_root': settings.MEDIA_ROOT}),
+
      (r'^videos/(?P<video_id>\d+)/$', 'chicagofirevideo.views.video_detail'),
      (r'^incident/(?P<incident_id>\d+)/$', 'chicagofirevideo.views.incident_detail'),
      (r'^item/(?P<item_number>.+)/$', 'chicagofirevideo.views.detail_by_item_number'),

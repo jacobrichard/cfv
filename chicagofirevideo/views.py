@@ -20,7 +20,7 @@ def incident_detail(request, incident_id):
     except Incident.DoesNotExist:
         raise Http404
     return render_to_response('chicagofirevideo/incident_detail.html',{'incident': incident, 'videos': videos, 'photos': photos, 'alarm_levels': alarm_levels})
-        
+
 def detail_by_item_number(request, item_number):
     try:
         video = Video.objects.get(item_number=item_number)

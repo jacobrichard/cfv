@@ -4,8 +4,6 @@ from stdimage import StdImageField
 from django.core.exceptions import ValidationError
 from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
-# Create your models here.
-# NEED TO CHANGE ImageField to StdImageField (auto thumbnailing, naming, etc)
 
 class Video(models.Model):
     title = models.CharField(max_length=200)
@@ -17,10 +15,10 @@ class Video(models.Model):
     product_photo = StdImageField(upload_to='product_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
     detail_photo_1 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
     detail_photo_2 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
-	
+
     def __unicode__(self):
         return self.title
-	
+
 class Incident(models.Model):
     video = models.ManyToManyField(Video,related_name='incidents')
     date = models.DateField()
@@ -31,22 +29,22 @@ class Incident(models.Model):
     department = models.CharField(max_length=200)
     description = models.TextField()
     keywords = models.CharField(max_length=200)
-	
-	
+
+
     def __unicode__(self):
         return ' - '.join([str(self.date),self.address])
 
 class Photo(models.Model):
     incident = models.ForeignKey(Incident)
     photo = StdImageField(upload_to='incident_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))
-	
+
     def __unicode__(self):
         return ' - '.join([str(self.id),unicode(self.incident)])
-		
+
 class AlarmLevel(models.Model):
     level_description = models.CharField(max_length=50)
     response_detail = models.TextField(blank=True)
-   
+
     def __unicode__(self):
         return self.level_description
 
@@ -59,9 +57,3 @@ class MerchantInfo(models.Model):
 
     def __unicode__(self):
         return "Merchant Info"
-
-#	def save(self, *args, **kwargs):
-#		if len(MerchantInfo.objects.all()) > 0:
-#			raise ValidationError("Only one entry allowed for Merchant Info")
-#		else:
-#			super(MerchantInfo, self).save(*args, **kwargs)
