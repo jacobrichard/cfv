@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib import admin
 from stdimage import StdImageField
+from django.core.exceptions import ValidationError
 from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
 # Create your models here.
@@ -48,3 +49,19 @@ class AlarmLevel(models.Model):
    
 	def __unicode__(self):
    		return self.level_description
+
+class MerchantInfo(models.Model):
+	business = models.CharField(max_length=200)	# This is the email associated with checkout i.e. orders@chicagofirevideo.com
+	merchant_id = models.CharField(max_length=20) # This is the merchant id for checkout i.e. ToCheckoutId in the hidden fields
+	ship_cost_first_item = models.DecimalField(max_digits=6,decimal_places=2) # Cost to ship first item
+	ship_cost_additional_item = models.DecimalField(max_digits=6,decimal_places=2) # Each Addt'l Item
+	thank_you_page = models.CharField(max_length=200) # URL of page to return to after checkout
+
+	def __unicode__(self):
+		return "Merchant Info"
+
+#	def save(self, *args, **kwargs):
+#		if len(MerchantInfo.objects.all()) > 0:
+#			raise ValidationError("Only one entry allowed for Merchant Info")
+#		else:
+#			super(MerchantInfo, self).save(*args, **kwargs)
