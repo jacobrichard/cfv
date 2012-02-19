@@ -5,26 +5,26 @@ from django.shortcuts import render_to_response, get_object_or_404
 
 def video_detail(request, video_id):
     try:
-        v = Video.objects.get(pk=video_id)
-        i = Incident.objects.filter(video=video_id)
+        video = Video.objects.get(pk=video_id)
+        incidents = Incident.objects.filter(video=video_id)
     except Video.DoesNotExist:
         raise Http404
-    return render_to_response('chicagofirevideo/video_detail.html', {'video': v, 'incidents': i})
+    return render_to_response('chicagofirevideo/video_detail.html', {'video': video, 'incidents': incidents})
 
 def incident_detail(request, incident_id):
     try:
-        i = Incident.objects.get(pk=incident_id)
-        v = i.video.all()
-        p = i.photo_set.all()
-        a = i.alarm_level.all()
+        incident = Incident.objects.get(pk=incident_id)
+        videos = i.video.all()
+        photos = i.photo_set.all()
+        alarm_levels = i.alarm_level.all()
     except Incident.DoesNotExist:
         raise Http404
-    return render_to_response('chicagofirevideo/incident_detail.html',{'incident': i, 'videos': v, 'photos': p, 'alarm_levels': a})
+    return render_to_response('chicagofirevideo/incident_detail.html',{'incident': incident, 'videos': videos, 'photos': photos, 'alarm_levels': alarm_levels})
         
 def detail_by_item_number(request, item_number):
     try:
-        v = Video.objects.get(item_number=item_number)
-        i = Incident.objects.filter(video=v.id)
+        video = Video.objects.get(item_number=item_number)
+        incidents = Incident.objects.filter(video=v.id)
     except Video.DoesNotExist:
         raise Http404
-    return render_to_response('chicagofirevideo/video_detail.html', {'video': v, 'incidents': i})
+    return render_to_response('chicagofirevideo/video_detail.html', {'video': video, 'incidents': incidents})
