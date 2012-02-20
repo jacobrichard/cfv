@@ -4,6 +4,7 @@ Things Needed for this to Run:
 	python-memcached (easy_install)
 	python-flup (easy_install)
 	python imaging library (easy_install)
+	south (easy_install)
 	memcached (apt-get)
 	django-stdimage (svn checkout http://django-stdimage.googlecode.com/svn/trunk/stdimage)
 	
