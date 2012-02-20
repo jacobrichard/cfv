@@ -1,0 +1,12 @@
+<html>
+<head>
+<title> MemCached Stats </title>
+<head>
+<body>
+<table>
+{% for key, value in stats.items %}
+    <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>
