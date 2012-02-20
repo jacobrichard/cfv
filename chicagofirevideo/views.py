@@ -35,6 +35,9 @@ def detail_by_item_number(request, item_number):
         raise Http404
     return render_to_response('chicagofirevideo/video_detail.html', {'video': video, 'incidents': incidents})
 
+def index(request):
+    return render_to_response('chicagofirevideo/index.html')
+
 def memcached_stats (request):
     try:
         mc = memcache.Client(['127.0.0.1:11211'], debug=0)

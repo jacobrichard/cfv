@@ -97,5 +97,5 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'south',
     'chicagofirevideo',
-    'django.contrib.auth'
+    'django.contrib.auth',
 )

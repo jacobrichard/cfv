@@ -5,7 +5,12 @@ server {
                 access_log      /var/log/nginx/chicagofirevideo.access_log;
                 error_log       /var/log/nginx/chicagofirevideo.error_log;
 
-               location /media  {
+		location /admin-tools/  {
+			autoindex on;
+			alias /root/django-webapp/admin-tools;
+		}
+
+                location /media  {
                         autoindex on;
                         alias /root/django-webapp/media;
                 }
