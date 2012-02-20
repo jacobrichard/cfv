@@ -3,6 +3,7 @@ from django.contrib import admin
 from stdimage import StdImageField
 from django.core.exceptions import ValidationError
 from django.contrib.localflavor.us.us_states import STATE_CHOICES
+from south.modelsinspector import add_introspection_rules
 
 
 class Video(models.Model):
@@ -57,3 +58,14 @@ class MerchantInfo(models.Model):
 
     def __unicode__(self):
         return "Merchant Info"
+
+## South Introspection Rules for StdImageField
+rules = [
+  (
+    (StdImageField, ),
+    [],
+    {},
+  ),
+]
+
+add_introspection_rules(rules, ["^stdimage\.fields\.StdImageField"])
