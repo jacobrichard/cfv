@@ -1,4 +1,4 @@
-from chicagofirevideo.models import Video, Incident, Photo, AlarmLevel, MerchantInfo
+from chicagofirevideo.models import Video, Incident, Photo, AlarmLevel, MerchantInfo, Keyword
 from django.contrib import admin
 from django import forms
 
@@ -21,7 +21,7 @@ class IncidentAdmin(admin.ModelAdmin):
         PhotoInline,
     ]
     filter_horizontal = [
-        'video','alarm_level' 
+        'video','alarm_level','keywords'
     ]
 
 class MerchantInfoAdminForm(forms.ModelForm):
@@ -42,3 +42,4 @@ admin.site.register(Incident,IncidentAdmin)
 admin.site.register(Photo)
 admin.site.register(AlarmLevel)
 admin.site.register(MerchantInfo,MerchantInfoAdmin)
+admin.site.register(Keyword)

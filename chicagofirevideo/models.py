@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.localflavor.us.us_states import STATE_CHOICES
 from south.modelsinspector import add_introspection_rules
 
-
 class Video(models.Model):
     title = models.CharField(max_length=200)    # Video Title
     length = models.CharField(max_length=200)   # Total Running Time
@@ -21,15 +20,15 @@ class Video(models.Model):
         return self.title
 
 class Incident(models.Model):
-    video = models.ManyToManyField(Video,related_name='incidents')  # Videos it appears on
+    video = models.ManyToManyField(Video,related_name='incidents',blank=True,null=True)  # Videos it appears on
     date = models.DateField()   # Date of occurence
     address = models.CharField(max_length=200)  # Address of occurence
     city = models.CharField(max_length=200) # City of occurence
     state = models.CharField(max_length=2,choices=STATE_CHOICES)    # State of occurence
-    alarm_level = models.ManyToManyField('AlarmLevel',related_name='alarm_levels')  # Alarm Level
+    alarm_level = models.ManyToManyField('AlarmLevel',related_name='alarm_levels',blank=True,null=True)  # Alarm Level
     department = models.CharField(max_length=200)   # Department(s)
     description = models.TextField()    # Description of incident
-    keywords = models.CharField(max_length=200) # Relevant Keywords
+    keywords = models.ManyToManyField('Keyword',related_name='keywords',blank=True,null=True) # Relevant Keywords
 
 
     def __unicode__(self):
@@ -58,6 +57,12 @@ class MerchantInfo(models.Model):
 
     def __unicode__(self):
         return "Merchant Info"
+
+class Keyword(models.Model):
+    keyword = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.keyword
 
 ## South Introspection Rules for StdImageField
 rules = [

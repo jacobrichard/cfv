@@ -11,10 +11,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'chicagofirevideo',
 	'USER': 'django',
-	'PASSWORD': 'djangouser',
+	'PASSWORD': 'django_user',
     }
 }
 
@@ -95,7 +95,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'south',
     'chicagofirevideo',
     'django.contrib.auth',
 )
