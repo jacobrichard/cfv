@@ -27,6 +27,17 @@ def incident_detail(request, incident_id):
     return render_to_response('chicagofirevideo/incident_detail.html',{'incident': incident, 'videos': videos, 'photos': photos, 'alarm_levels': alarm_levels})
 
 @cache_page(60 * 15)
+def incident_gallery(request, incident_id):
+    try:
+        incident = Incident.objects.get(pk=incident_id)
+        videos = incident.video.all()
+        photos = incident.photo_set.all()
+        alarm_levels = incident.alarm_level.all()
+    except Incident.DoesNotExist:
+        raise Http404
+    return render_to_response('chicagofirevideo/incident_gallery.html',{'incident': incident, 'videos': videos, 'photos': photos, 'alarm_levels': alarm_levels})
+
+@cache_page(60 * 15)
 def detail_by_item_number(request, item_number):
     try:
         video = Video.objects.get(item_number=item_number)

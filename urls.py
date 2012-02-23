@@ -23,6 +23,7 @@ urlpatterns = patterns('',
      (r'^index/$', 'chicagofirevideo.views.index'),
      (r'^videos/(?P<video_id>\d+)/$', 'chicagofirevideo.views.video_detail'),
      (r'^incident/(?P<incident_id>\d+)/$', 'chicagofirevideo.views.incident_detail'),
+     (r'^gallery/(?P<incident_id>\d+)/$', 'chicagofirevideo.views.incident_gallery'),
      (r'^item/(?P<item_number>.+)/$', 'chicagofirevideo.views.detail_by_item_number'),
 
      (r'^util/memcached/$', 'chicagofirevideo.views.memcached_stats')

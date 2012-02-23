@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block includes %}
+<link type="text/css" rel="stylesheet" href="/media/css/gallery.css"></link>
+<link type="text/css" rel="stylesheet" href="/media/js/tn3-gallery/skins/tn3/tn3.css"></link>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/media/js/tn3-gallery/js/jquery.tn3lite.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+   $('.tn3gallery').tn3({
+     width: 1200,
+     height: 800
+   });
+  });
+</script>
+{% endblock %}
+ {% block title_block %}Incident Gallery Page{% endblock %}
+
+{% block content %}
+<div style='float: left;'>
+Address: {{ incident.address }}
+<br>
+City: {{ incident.city }}
+<br>
+State: {{ incident.get_state_display }}
+<br>
+Alarm Level:
+{% for alarm_desc in alarm_levels %}
+{{ alarm_desc.level_description }}
+{% endfor %}
+<br>
+Department: {{ incident.department }}
+<br>
+Date: {{ incident.date }}
+<br>
+Keywords:
+{% if not incident.keywords %}
+None
+{% endif %}
+{% for keyword_item in incident.keywords.all %}
+   <li> {{ keyword_item.keyword }}</li>
+{% endfor %}
+<br>
+Appears On:
+{% if not videos %}
+<li>None</li>
+{% endif %}
+{% for video in videos %}
+<li>{{ video }}</li>
+{% endfor %}
+</div>
+<div style='float: right;' class="tn3gallery">
+{% for photo in photos %}
+    <a href="{{ photo.photo.url }}"><img src="{{ photo.photo.thumbnail.url }}" /></a>
+{% endfor %}
+</div>
+{% endblock %}
