@@ -4,3 +4,4 @@ media/product_photos
 media/incident_photos
 media/js
 chicagofirevideo/migrations
+*.pyc
