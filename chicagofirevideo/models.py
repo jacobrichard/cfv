@@ -59,7 +59,7 @@ class MerchantInfo(models.Model):
         return "Merchant Info"
 
 class Keyword(models.Model):
-    keyword = models.CharField(max_length=200)
+    keyword = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.keyword

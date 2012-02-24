@@ -7,8 +7,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
    $('.tn3gallery').tn3({
-     width: 1200,
-     height: 800
+     width: 1000,
+     height: 600
    });
   });
 </script>
@@ -31,10 +31,10 @@ Alarm Level:
 Department: {{ incident.department }}
 <br>
 Date: {{ incident.date }}
-<br>
+<br><br>
 Keywords:
 {% if not incident.keywords %}
-None
+<li>No Keywords defined</li>
 {% endif %}
 {% for keyword_item in incident.keywords.all %}
    <li> {{ keyword_item.keyword }}</li>
@@ -42,7 +42,7 @@ None
 <br>
 Appears On:
 {% if not videos %}
-<li>None</li>
+<li>No Video Appearances</li>
 {% endif %}
 {% for video in videos %}
 <li>{{ video }}</li>
