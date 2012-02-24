@@ -66,11 +66,14 @@ class Keyword(models.Model):
 
 ## South Introspection Rules for StdImageField
 rules = [
-  (
-    (StdImageField, ),
-    [],
-    {},
-  ),
+    (
+        (StdImageField,),
+        [],
+        {
+            "size": ["size", {"default": None}],
+            "thumbnail_size": ["thumbnail_size", {"default": None}],
+            "upload_to": ["upload_to", {"default": None}],
+        },
+    )
 ]
-
-add_introspection_rules(rules, ["^stdimage\.fields\.StdImageField"])
+add_introspection_rules(rules, ["^stdimage\.fields"])
