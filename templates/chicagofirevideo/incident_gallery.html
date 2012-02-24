@@ -45,7 +45,7 @@ Appears On:
 <li>No Video Appearances</li>
 {% endif %}
 {% for video in videos %}
-<li>{{ video }}</li>
+<li><a href='/item/{{ video.item_number }}'>{{ video }}</a></li>
 {% endfor %}
 </div>
 <div style='float: right;' class="tn3gallery">
