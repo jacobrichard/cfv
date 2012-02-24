@@ -90,5 +90,10 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'chicagofirevideo',
     'django.contrib.auth',
-    'south'
+    'south',
+    'analytical'
 )
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-29355340-1'
+GOOGLE_ANALYTICS_SITE_SPEED = True
+
