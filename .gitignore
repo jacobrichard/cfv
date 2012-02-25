@@ -6,3 +6,4 @@ media/js
 media/nginx_status
 chicagofirevideo/migrations
 *.pyc
+rrd

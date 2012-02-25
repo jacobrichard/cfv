@@ -3,7 +3,7 @@ use RRDs;
 use LWP::UserAgent;
 
 # define location of rrdtool databases
-my $rrd = '/opt/rrd';
+my $rrd = '/root/django-webapp/rrd';
 # define location of images
 my $img = '/root/django-webapp/media/nginx_status';
 # define your nginx stats URL
