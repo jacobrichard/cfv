@@ -52,8 +52,10 @@ def index(request):
 def memcached_stats (request):
     try:
         mc = memcache.Client(['127.0.0.1:11211'], debug=0)
-	response = mc.get_stats()[0][1]
-	mc.disconnect_all()
+    	response = mc.get_stats()[0][1]
     except:
         raise Http404
     return render_to_response('tools/memcached.html', {'stats': response})
+
+def nginx_stats (request):
+    return render_to_response('tools/nginx.html')

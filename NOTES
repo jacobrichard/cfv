@@ -14,6 +14,9 @@ Things Needed for this to Run:
     Google Analytics (easy_install django-analytical) http://packages.python.org/django-analytical/services/google_analytics.html
     http://www.kutukupret.com/2011/05/31/how-to-graph-nginx-statistics/
 
+Crontab for rrd_nginx
+* * * * * /root/django-webapp/util/rrd_nginx.pl
+
 Things to add: 
     Ask Brad about photo sizes, gallery layout
 
