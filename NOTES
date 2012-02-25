@@ -12,6 +12,8 @@ Things Needed for this to Run:
     tn3-gallery jQuery Plugin (Download)
     jQuery (Google AJAX CDN) 
     Google Analytics (easy_install django-analytical) http://packages.python.org/django-analytical/services/google_analytics.html
+    http://www.kutukupret.com/2011/05/31/how-to-graph-nginx-statistics/
+
 Things to add: 
     Ask Brad about photo sizes, gallery layout
 

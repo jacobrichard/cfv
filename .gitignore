@@ -3,5 +3,6 @@ media/detail_photos
 media/product_photos
 media/incident_photos
 media/js
+media/nginx_status
 chicagofirevideo/migrations
 *.pyc
