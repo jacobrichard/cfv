@@ -17,6 +17,12 @@ Things Needed for this to Run:
 Crontab for rrd_nginx
 * * * * * /root/django-webapp/util/rrd_nginx.pl
 
+Things to check:
+    Make sure system clock is in UTC
+    postgresql autostart
+    memcached autostart
+    nginx autostart
+
 Things to add: 
     Ask Brad about photo sizes, gallery layout
 
