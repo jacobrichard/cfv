@@ -10,8 +10,8 @@ Things Needed for this to Run:
 	postgresql_psycopg2 (apt-get install python-psycopg2)
     postgresql (apt-get install postgresql)
     tn3-gallery jQuery Plugin (Download)
-    jQuery (Google AJAX CDN)
-
+    jQuery (Google AJAX CDN) 
+    Google Analytics (easy_install django-analytical) http://packages.python.org/django-analytical/services/google_analytics.html
 Things to add: 
     Ask Brad about photo sizes, gallery layout
 
