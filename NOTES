@@ -33,3 +33,12 @@ Advantages:
     Templating
     Speed  
     Caching
+
+URLs:
+    /incident/# (Incident by Number -- This is a gallery page)
+    /item/# (Video by Item Number)
+    / (Index Page)
+    /util/memcached (memcache stats)
+    /util/nginx (nginx stats)
+    /admin (admin pages)
+    /media (static media storage)

@@ -4,6 +4,7 @@ media/product_photos
 media/incident_photos
 media/js
 media/nginx_status
+templates/django_admin
 chicagofirevideo/migrations
 *.pyc
 rrd

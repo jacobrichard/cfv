@@ -27,5 +27,5 @@ urlpatterns = patterns('',
      (r'^item/(?P<item_number>.+)/$', 'chicagofirevideo.views.detail_by_item_number'),
 
      (r'^util/memcached/$', 'chicagofirevideo.views.memcached_stats'),
-     (r'^util/nginx/$', 'chicagofirevideo.views.nginx_stats')
+     (r'^util/nginx/$', 'chicagofirevideo.views.nginx_stats'),
 )
