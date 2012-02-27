@@ -5,52 +5,49 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/media/js/tn3-gallery/js/jquery.tn3lite.min.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-   $('.tn3gallery').tn3({
-     width: 1000,
-     height: 600
-   });
-  });
+$(document).ready(function() {
+ $('.tn3gallery').tn3({
+   width: 1000,
+   height: 600
+ });
+});
 </script>
 {% endblock %}
- {% block title_block %}Incident Gallery Page{% endblock %}
-
+{% block title_block %}Incident Gallery Page{% endblock %}
 {% block content %}
 <div style='float: left;'>
-Address: {{ incident.address }}
-<br>
-City: {{ incident.city }}
-<br>
-State: {{ incident.get_state_display }}
-<br>
-Alarm Level:
-{% for alarm_desc in alarm_levels %}
-{{ alarm_desc.level_description }}
-{% endfor %}
-<br>
-Department: {{ incident.department }}
-<br>
-Date: {{ incident.date }}
-<br><br>
-Keywords:
-{% if not incident.keywords %}
-<li>No Keywords defined</li>
-{% endif %}
-{% for keyword_item in incident.keywords.all %}
-   <li> {{ keyword_item.keyword }}</li>
-{% endfor %}
-<br>
-Appears On:
-{% if not videos %}
-<li>No Video Appearances</li>
-{% endif %}
-{% for video in videos %}
-<li><a href='/item/{{ video.item_number }}'>{{ video }}</a></li>
-{% endfor %}
+    Address: {{ incident.address }}
+    <br>
+    City: {{ incident.city }}
+    <br>
+    State: {{ incident.get_state_display }}
+    <br>
+    Alarm Level:
+    {% for alarm_desc in alarm_levels %}
+        {{ alarm_desc.level_description }}
+    {% endfor %}
+    <br>
+    Department: {{ incident.department }}
+    <br>
+    Date: {{ incident.date }}
+    <br><br>
+    Keywords:
+    {% for keyword_item in incident.keywords.all %}
+        <li> {{ keyword_item.keyword }}</li>
+    {% empty %}
+        <li>No Keywords defined</li>
+    {% endfor %}
+    <br>
+    Appears On:
+    {% for video in videos %}
+        <li><a href='/item/{{ video.item_number }}'>{{ video }}</a></li>
+    {% empty %}
+        <li>No Video Appearances</li>
+    {% endfor %}
 </div>
 <div style='float: right;' class="tn3gallery">
-{% for photo in photos %}
-    <a href="{{ photo.photo.url }}"><img src="{{ photo.photo.thumbnail.url }}" /></a>
-{% endfor %}
+    {% for photo in photos %}
+        <a href="{{ photo.photo.url }}"><img src="{{ photo.photo.thumbnail.url }}" /></a>
+    {% endfor %}
 </div>
 {% endblock %}

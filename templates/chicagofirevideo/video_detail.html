@@ -26,6 +26,8 @@ Stills<br>
 <tr><td>Incidents</td></tr>
 {% for incident in incidents %}
     <tr><td><li><a href='/incident/{{ incident.id }}'>{{ incident.address }}</a></li></td></tr>
+{% empty %}
+    <tr><td><li>No Incidents on this Video</li></td></tr>
 {% endfor %}
 </table>
 {% endblock %}
