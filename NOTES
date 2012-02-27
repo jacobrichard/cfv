@@ -34,6 +34,9 @@ Advantages:
     Speed  
     Caching
 
+Mistakes:
+    Named model columns python keywords (i.e. length, title)
+
 URLs:
     /incident/# (Incident by Number -- This is a gallery page)
     /item/# (Video by Item Number)
