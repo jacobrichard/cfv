@@ -1,18 +1,20 @@
 Things Needed for this to Run:
 	Django 1.2+ (easy_install python-django)
-	Nginx (apt-get install nginx)
-	python-memcached (easy_install python-memcached)
-	python-flup (easy_install python-flup)
-	python imaging library (easy_install python-imaging)
-	south (easy_install south)
-	memcached (apt-get install memcached)
-	django-stdimage (svn checkout http://django-stdimage.googlecode.com/svn/trunk/stdimage)
-	postgresql_psycopg2 (apt-get install python-psycopg2)
-    postgresql (apt-get install postgresql)
-    tn3-gallery jQuery Plugin (Download)
+	Nginx (apt-get install nginx) to serve site
+	python-memcached (easy_install python-memcached) for caching
+	python-flup (easy_install python-flup) required for fastcgi
+	python imaging library (easy_install python-imaging) required for stdimage
+	south (easy_install south) for DB migrations
+	memcached (apt-get install memcached) for caching
+	django-stdimage (svn checkout http://django-stdimage.googlecode.com/svn/trunk/stdimage) auto thumbnailing and resizing
+	postgresql_psycopg2 (apt-get install python-psycopg2) required for postgres 
+    postgresql (apt-get install postgresql) DB engine
+    tn3-gallery jQuery Plugin (Download) gallery application
     jQuery (Google AJAX CDN) 
-    Google Analytics (easy_install django-analytical) http://packages.python.org/django-analytical/services/google_analytics.html
-    http://www.kutukupret.com/2011/05/31/how-to-graph-nginx-statistics/
+    Google Analytics (easy_install django-analytical) http://packages.python.org/django-analytical/services/google_analytics.html for analysis
+    http://www.kutukupret.com/2011/05/31/how-to-graph-nginx-statistics/ NGINX RRD statistics
+    django-admin-tools (easy_install -Z django-admin-tools) Pretty admin interface
+    python-feedparser (easy_install feedparser) Required for admin-tools
 
 Crontab for rrd_nginx
 * * * * * /root/django-webapp/util/rrd_nginx.pl
