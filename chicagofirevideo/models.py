@@ -19,6 +19,12 @@ class Video(models.Model):
     def __unicode__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '/video/%i' % self.id
+
+    def get_item_url(self):
+        return '/item/%s' % self.item_number
+
 class Incident(models.Model):
     video = models.ManyToManyField(Video,related_name='incidents',blank=True,null=True)  # Videos it appears on
     date = models.DateField()   # Date of occurence
@@ -30,9 +36,11 @@ class Incident(models.Model):
     description = models.TextField()    # Description of incident
     keywords = models.ManyToManyField('Keyword',related_name='keywords',blank=True,null=True) # Relevant Keywords
 
-
     def __unicode__(self):
         return ' - '.join([str(self.date),self.address])
+
+    def get_absolute_url(self):
+        return '/incident/%i' % self.id
 
 class Photo(models.Model):
     incident = models.ForeignKey(Incident)  # Incident the photo appears in
