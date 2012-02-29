@@ -6,6 +6,7 @@ media/incident_photos
 media/js
 media/nginx_status
 templates/django_admin
+templates/flatpages
 chicagofirevideo/migrations
 *.pyc
 rrd
