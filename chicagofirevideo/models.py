@@ -19,6 +19,9 @@ class Video(models.Model):
     def __unicode__(self):
         return self.title
 
+	def __str__(self):
+		return self.title
+
     def get_absolute_url(self):
         return '/video/%i' % self.id
 
@@ -39,6 +42,9 @@ class Incident(models.Model):
     def __unicode__(self):
         return ' - '.join([str(self.date),self.address])
 
+	def __str__(self):
+		return ' - '.join([str(self.date),self.address])
+
     def get_absolute_url(self):
         return '/incident/%i' % self.id
 
@@ -49,12 +55,18 @@ class Photo(models.Model):
     def __unicode__(self):
         return ' - '.join([str(self.id),unicode(self.incident)])
 
+	def __str__(self):
+		return ' - '.join([str(self.id),unicode(self.incident)])
+
 class AlarmLevel(models.Model):
     level_description = models.CharField(max_length=50) # Alarm Level Name 
     response_detail = models.TextField(blank=True)  # Alarm Response Detail
 
     def __unicode__(self):
         return self.level_description
+
+	def __str__(self):
+		return self.level_description
 
 class MerchantInfo(models.Model):
     business = models.CharField(max_length=200)	# This is the email associated with checkout i.e. orders@chicagofirevideo.com
@@ -65,13 +77,19 @@ class MerchantInfo(models.Model):
 
     def __unicode__(self):
         return "Merchant Info"
+	
+	def __str__(self):
+		return "Merchant Info"
 
 class Keyword(models.Model):
     keyword = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.keyword
-
+	
+	def __str__(self):
+		return self.keyword
+		
 ## South Introspection Rules for StdImageField
 rules = [
     (
