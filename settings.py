@@ -81,6 +81,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,7 +112,11 @@ INSTALLED_APPS = (
     'chicagofirevideo',
     'south',
     'analytical',
+    'django.contrib.flatpages',
+    'django.contrib.redirects',
 )
 
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-29355340-1'
 GOOGLE_ANALYTICS_SITE_SPEED = True
+
+SITE_ID = 1
