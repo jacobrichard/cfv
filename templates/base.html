@@ -5,6 +5,25 @@
 {% google_analytics %}
 </head>
 <body>
+    <div height="100px" id="header" class="header">
+        <div class="header_floater"></div>
+        <div class="header_content">
+            <img src="/media/static_files/chicagofirelogo_white.png" />
+        </div>
+        <div class='header_buttons'>
+        <div class="header_floater"></div>
+            <table>
+                <tr>
+                <td><a href=''><img src='/media/static_files/home_button.png'/></a></td>
+                <td><a href=''><img src="/media/static_files/videos_button.png"/></a></td>
+                <td><a href=''><img src="/media/static_files/incidents_button.png"></a></td>
+                <td><a href=''><img src="/media/static_files/aboutus_button.png"/></a></td>
+                <td><img src="/media/static_files/spacer_220x50.png"/></td>
+                </tr>
+            </table>    
+        </div>
+    </div>
+    <hr>
     {% block content %}{% endblock %}
     {% block footer %}{% endblock %}
 </body>

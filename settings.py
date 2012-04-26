@@ -13,8 +13,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'chicagofirevideo',
-	'USER': 'django',
-	'PASSWORD': 'django_user',
+        'USER': 'django',
+	    'PASSWORD': 'django_user',
     }
 }
 

@@ -15,6 +15,7 @@ class Video(models.Model):
     product_photo = StdImageField(upload_to='product_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))   # Product Photo
     detail_photo_1 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))   # Photo 1 of incident
     detail_photo_2 = StdImageField(upload_to='detail_photos', blank=True, size=(640, 480), thumbnail_size=(150, 150))   # Photo 2 of incident
+    video_clip = models.TextField(max_length=200, blank=True)
 
     def __unicode__(self):
         return self.title

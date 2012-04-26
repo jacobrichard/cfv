@@ -7,14 +7,15 @@
 <script type="text/javascript">
 $(document).ready(function() {
  $('.tn3gallery').tn3({
-   width: 1000,
-   height: 600
+   width: 600,
+   height: 350
  });
 });
 </script>
 {% endblock %}
 {% block title_block %}Incident Gallery Page{% endblock %}
 {% block content %}
+<div class='content'>
 <div style='float: left;'>
     Address: {{ incident.address }}
     <br>
@@ -45,9 +46,11 @@ $(document).ready(function() {
         <li>No Video Appearances</li>
     {% endfor %}
 </div>
-<div style='float: right;' class="tn3gallery">
+<div style='float: right; width: 220px;'><img src='/media/static_files/spacer_220x50.png'/></div>
+<div style='float: right; width: 600px;' class="tn3gallery">
     {% for photo in photos %}
         <a href="{{ photo.photo.url }}"><img src="{{ photo.photo.thumbnail.url }}" /></a>
     {% endfor %}
+</div>
 </div>
 {% endblock %}
